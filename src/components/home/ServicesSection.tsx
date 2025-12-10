@@ -1,31 +1,31 @@
 import { Link } from "react-router-dom";
-import { Building2, Hammer, Factory, Leaf, Wrench, ArrowRight } from "lucide-react";
+import { Building2, PaintBucket, Hammer, Paintbrush, Wrench, ArrowRight } from "lucide-react";
 
 const services = [
   {
     icon: Building2,
-    title: "Nybyggeri",
-    description: "Professionel opførelse af erhvervsbygninger, kontorer og produktionsfaciliteter fra grund.",
-  },
-  {
-    icon: Hammer,
-    title: "Renovering",
-    description: "Omfattende renovering og modernisering af eksisterende bygninger med fokus på energieffektivitet.",
-  },
-  {
-    icon: Factory,
-    title: "Industribyggeri",
-    description: "Specialiseret i store industrielle anlæg, lagerbygninger og logistikcentre.",
-  },
-  {
-    icon: Leaf,
-    title: "Bæredygtigt Byggeri",
-    description: "Miljøvenlige byggeløsninger med fokus på certificeringer som DGNB og BREEAM.",
+    title: "Facadepuds",
+    description: "Professionel facadepuds med systempuds. Vi sikrer holdbare og æstetisk flotte facader til alle typer bygninger.",
   },
   {
     icon: Wrench,
-    title: "Vedligeholdelse",
-    description: "Løbende vedligeholdelse og serviceaftaler for erhvervsejendomme.",
+    title: "Facadebeklædning",
+    description: "Facader med eternit, træ og aluminium. Moderne løsninger der kombinerer holdbarhed med æstetik.",
+  },
+  {
+    icon: Hammer,
+    title: "Tømrerarbejde",
+    description: "Opsætning af gipsvægge og lofter, montage af vinduer og døre, systemlofter, indvendige døre og trægulve.",
+  },
+  {
+    icon: Paintbrush,
+    title: "Malerarbejde",
+    description: "Alle arbejder inden for malerfaget. Fra grundig forberedelse til professionel finish på alle overflader.",
+  },
+  {
+    icon: PaintBucket,
+    title: "Betonfinish",
+    description: "Specialiseret betonfinish arbejder ved elementmontage. Sikrer perfekt overflade og holdbarhed.",
   },
 ];
 
@@ -42,7 +42,7 @@ export const ServicesSection = () => {
             Vores Ydelser
           </h2>
           <p className="text-lg text-muted-foreground">
-            Vi leverer komplette byggeløsninger til erhvervslivet med fokus på kvalitet, bæredygtighed og professionel projektledelse.
+            Vi leverer komplette byggeløsninger med fokus på kvalitet, håndværk og professionel projektledelse.
           </p>
         </div>
 
