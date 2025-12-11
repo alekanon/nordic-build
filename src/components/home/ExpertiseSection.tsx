@@ -1,25 +1,19 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import heroProject2 from "@/assets/hero-project-2.jpg";
-
 export const ExpertiseSection = () => {
-  return (
-    <section className="py-24 bg-muted">
+  return <section className="py-24 bg-muted">
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Image */}
           <div className="relative order-2 lg:order-1">
             <div className="relative aspect-[4/3] overflow-hidden">
-              <img
-                src={heroProject2}
-                alt="Professionelt håndværk"
-                className="w-full h-full object-cover"
-              />
+              <img src={heroProject2} alt="Professionelt håndværk" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
             </div>
             {/* Accent box */}
-            <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-primary hidden lg:block" />
-            <div className="absolute -bottom-4 -right-4 w-48 h-48 border-2 border-primary hidden lg:block" />
+            
+            
           </div>
 
           {/* Content */}
@@ -58,6 +52,5 @@ export const ExpertiseSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
