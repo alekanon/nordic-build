@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
-import { ArrowRight, MapPin, Calendar, Ruler } from "lucide-react";
+import { MapPin, Calendar, Ruler } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PageHero } from "@/components/shared/PageHero";
+import { ReferenceModal } from "@/components/shared/ReferenceModal";
 import heroProject1 from "@/assets/hero-project-1.jpg";
 import heroProject2 from "@/assets/hero-project-2.jpg";
 import heroProject3 from "@/assets/hero-project-3.jpg";
@@ -14,7 +17,7 @@ const projects = [
     location: "København",
     year: "2023",
     size: "8.500 m²",
-    description: "Moderne produktionsfacilitet med integrerede kontorer og bæredygtige løsninger.",
+    description: "Moderne produktionsfacilitet med integrerede kontorer og bæredygtige løsninger. Projektet omfattede komplet facaderenovering med systempuds og installation af energieffektive vinduer.",
   },
   {
     image: heroProject2,
@@ -23,7 +26,7 @@ const projects = [
     location: "Aarhus",
     year: "2023",
     size: "12.000 m²",
-    description: "Klimaneutralt kontorkompleks med DGNB Guld-certificering.",
+    description: "Klimaneutralt kontorkompleks med DGNB Guld-certificering. Vi udførte alt tømrerarbejde inkl. gipsvægge, lofter og indvendige døre samt komplet malerarbejde.",
   },
   {
     image: heroProject3,
@@ -32,7 +35,7 @@ const projects = [
     location: "Odense",
     year: "2022",
     size: "25.000 m²",
-    description: "Avanceret logistikcenter med automatiseret lagersystem.",
+    description: "Avanceret logistikcenter med automatiseret lagersystem. Betonfinish arbejde på alle elementer og facade med aluminiumbeklædning.",
   },
   {
     image: heroProject1,
@@ -41,7 +44,7 @@ const projects = [
     location: "Ballerup",
     year: "2022",
     size: "6.200 m²",
-    description: "Fleksibelt erhvervsbyggeri til tech-virksomheder med fokus på samarbejde.",
+    description: "Fleksibelt erhvervsbyggeri til tech-virksomheder med fokus på samarbejde. Komplet indvendig finish inkl. systemlofter og trægulve.",
   },
   {
     image: heroProject2,
@@ -50,7 +53,7 @@ const projects = [
     location: "Hillerød",
     year: "2021",
     size: "15.000 m²",
-    description: "Renrumsfaciliteter til farmaceutisk produktion med strenge kvalitetskrav.",
+    description: "Renrumsfaciliteter til farmaceutisk produktion med strenge kvalitetskrav. Specialiseret malerarbejde og gipsløsninger til renrum.",
   },
   {
     image: heroProject3,
@@ -59,39 +62,30 @@ const projects = [
     location: "Esbjerg",
     year: "2021",
     size: "18.500 m²",
-    description: "Moderne fødevareproduktionsanlæg med køle- og frysekapacitet.",
+    description: "Moderne fødevareproduktionsanlæg med køle- og frysekapacitet. Facadepuds med systemløsninger og komplet betonfinish.",
   },
 ];
 
 const Referenser = () => {
+  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-muted concrete-texture">
-        <div className="container">
-          <div className="max-w-3xl">
-            <span className="inline-block font-heading text-sm uppercase tracking-[0.3em] text-primary mb-4">
-              Vores Arbejde
-            </span>
-            <h1 className="font-heading text-5xl md:text-6xl uppercase text-foreground mb-6">
-              Referencer
-            </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              Se et udvalg af vores gennemførte projekter. Hvert projekt repræsenterer vores 
-              engagement i kvalitet, bæredygtighed og professionel udførelse.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        tagline="Vores Arbejde"
+        title="Referencer"
+        description="Se et udvalg af vores gennemførte projekter. Hvert projekt repræsenterer vores engagement i kvalitet, bæredygtighed og professionel udførelse."
+      />
 
       {/* Projects Grid */}
       <section className="py-24 bg-background">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
+            {projects.map((project) => (
               <article
                 key={project.title}
-                className="group bg-card shadow-card hover:shadow-industrial transition-all duration-300 overflow-hidden"
+                onClick={() => setSelectedProject(project)}
+                className="group bg-card shadow-card hover:shadow-industrial transition-all duration-300 overflow-hidden cursor-pointer"
               >
                 <div className="relative h-64 overflow-hidden">
                   <img
@@ -100,13 +94,18 @@ const Referenser = () => {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="inline-block bg-primary px-3 py-1 text-xs font-heading uppercase tracking-wider text-primary-foreground">
+                    <span className="inline-block bg-primary px-3 py-1 text-xs uppercase tracking-wider text-primary-foreground">
                       {project.category}
+                    </span>
+                  </div>
+                  <div className="absolute inset-0 bg-industrial-dark/0 group-hover:bg-industrial-dark/30 transition-colors duration-300 flex items-center justify-center">
+                    <span className="text-white text-sm uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      Klik for detaljer
                     </span>
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="font-heading text-xl uppercase text-foreground mb-3">
+                  <h3 className="text-xl uppercase text-foreground mb-3 font-semibold">
                     {project.title}
                   </h3>
                   <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
@@ -144,10 +143,10 @@ const Referenser = () => {
               { number: "98%", label: "Tilfredshed" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
-                <span className="block font-heading text-4xl md:text-5xl text-primary mb-2">
+                <span className="block text-4xl md:text-5xl text-primary mb-2 font-semibold">
                   {stat.number}
                 </span>
-                <span className="font-heading text-sm uppercase tracking-wider text-muted-foreground">
+                <span className="text-sm uppercase tracking-wider text-muted-foreground">
                   {stat.label}
                 </span>
               </div>
@@ -159,7 +158,7 @@ const Referenser = () => {
       {/* CTA */}
       <section className="py-20 bg-industrial-dark">
         <div className="container text-center">
-          <h2 className="font-heading text-3xl md:text-4xl uppercase text-secondary-foreground mb-6">
+          <h2 className="text-3xl md:text-4xl uppercase text-secondary-foreground mb-6 font-semibold">
             Vil Du Være Vores Næste Reference?
           </h2>
           <p className="text-lg text-secondary-foreground/70 mb-8 max-w-2xl mx-auto">
@@ -170,8 +169,15 @@ const Referenser = () => {
           </Button>
         </div>
       </section>
+
+      {/* Modal */}
+      <ReferenceModal
+        project={selectedProject}
+        isOpen={!!selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </Layout>
   );
 };
 
-export default Referenser;
+export default Referencer;

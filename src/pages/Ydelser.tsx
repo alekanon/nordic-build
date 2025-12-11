@@ -1,79 +1,73 @@
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
-import { Building2, Hammer, Factory, Leaf, Wrench, HardHat, ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PageHero } from "@/components/shared/PageHero";
+import serviceFacadepuds from "@/assets/service-facadepuds.jpg";
+import serviceFacade from "@/assets/service-facade.jpg";
+import serviceToemrer from "@/assets/service-toemrer.jpg";
+import serviceMaler from "@/assets/service-maler.jpg";
+import serviceBeton from "@/assets/service-beton.jpg";
 
 const services = [
   {
-    icon: Building2,
-    title: "Nybyggeri",
-    description: "Professionel opførelse af erhvervsbygninger fra grund til nøglefærdigt byggeri.",
+    image: serviceFacadepuds,
+    title: "Facadepuds med Systempuds",
+    description: "Professionel facadepudsning med de nyeste systemløsninger. Vi sikrer langtidsholdbare og æstetisk flotte facader med moderne pudssystemer der beskytter mod vejr og vind.",
     features: [
-      "Kontorbygninger",
-      "Produktionshaller",
-      "Lagerbygninger",
-      "Butikslokaler",
-      "Parkeringshuse",
+      "Komplet facadepuds systemer",
+      "Renovering af eksisterende facader",
+      "Isolering og efterisolering",
+      "Alle typer pudsteknikker",
+      "10+ års garanti på materialer",
     ],
   },
   {
-    icon: Hammer,
-    title: "Renovering",
-    description: "Omfattende renovering og modernisering af eksisterende erhvervsejendomme.",
+    image: serviceFacade,
+    title: "Facader med Eternit/Træ/Aluminium",
+    description: "Vi leverer og monterer facadebeklædning i eternit, træ og aluminium. Moderne og holdbare løsninger der giver din bygning et professionelt udtryk med minimal vedligeholdelse.",
     features: [
-      "Energirenovering",
-      "Facaderenovering",
-      "Tagrenovering",
-      "Indvendig ombygning",
-      "Tekniske installationer",
+      "Eternit facadeplader",
+      "Træbeklædning i alle træsorter",
+      "Aluminium facadesystemer",
+      "Ventilerede facadeløsninger",
+      "Arkitektonisk rådgivning",
     ],
   },
   {
-    icon: Factory,
-    title: "Industribyggeri",
-    description: "Specialiseret i store industrielle anlæg med komplekse tekniske krav.",
+    image: serviceToemrer,
+    title: "Tømrerarbejde",
+    description: "Komplet tømrerservice til erhvervsbyggeri. Fra gipsvægge og lofter til vinduer, døre og gulve - vi håndterer alle aspekter af indvendigt tømrerarbejde med præcision.",
     features: [
-      "Produktionsfaciliteter",
-      "Logistikcentre",
-      "Køle- og frysehuse",
-      "Procesbygninger",
-      "Værksteder",
+      "Opsætning af gipsvægge og lofter",
+      "Montage af vinduer og døre",
+      "Opsætning af systemlofter",
+      "Montage af indvendige døre",
+      "Lægning af trægulve",
     ],
   },
   {
-    icon: Leaf,
-    title: "Bæredygtigt Byggeri",
-    description: "Miljøvenlige byggeløsninger med fokus på certificeringer og grøn omstilling.",
+    image: serviceMaler,
+    title: "Malerarbejde",
+    description: "Professionelt malerarbejde til alle typer erhvervsprojekter. Vi udfører alle arbejder inden for faget med fokus på kvalitet, holdbarhed og æstetik.",
     features: [
-      "DGNB-certificering",
-      "BREEAM-certificering",
-      "Solcelleanlæg",
-      "Grønne tage",
-      "Genanvendelige materialer",
+      "Indvendig maling",
+      "Udvendig maling",
+      "Sprøjtemaling",
+      "Specialbelægninger",
+      "Industrimaling",
     ],
   },
   {
-    icon: Wrench,
-    title: "Vedligeholdelse",
-    description: "Løbende vedligeholdelse og serviceaftaler for erhvervsejendomme.",
+    image: serviceBeton,
+    title: "Betonfinish ved Elementmontage",
+    description: "Specialiseret betonfinish arbejde i forbindelse med elementmontage. Vi sikrer en perfekt finish på alle betonelementer med fokus på kvalitet og æstetik.",
     features: [
-      "Serviceaftaler",
-      "Akut reparation",
-      "Forebyggende vedligehold",
-      "Bygningseftersyn",
-      "Teknisk rådgivning",
-    ],
-  },
-  {
-    icon: HardHat,
-    title: "Projektledelse",
-    description: "Professionel styring af byggeproces fra planlægning til aflevering.",
-    features: [
-      "Byggeledelse",
-      "Økonomistyring",
-      "Kvalitetssikring",
-      "Tidsplanlægning",
-      "Interessenthåndtering",
+      "Fugning af betonelementer",
+      "Reparation af betonskader",
+      "Overfladebehandling",
+      "Beskyttende coating",
+      "Præcisionsarbejde",
     ],
   },
 ];
@@ -81,53 +75,54 @@ const services = [
 const Ydelser = () => {
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-muted concrete-texture">
-        <div className="container">
-          <div className="max-w-3xl">
-            <span className="inline-block font-heading text-sm uppercase tracking-[0.3em] text-primary mb-4">
-              Vores Kompetencer
-            </span>
-            <h1 className="font-heading text-5xl md:text-6xl uppercase text-foreground mb-6">
-              Ydelser
-            </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              Vi tilbyder en bred vifte af byggeydelser til erhvervslivet. Fra nybyggeri og renovering 
-              til specialiseret industribyggeri - altid med fokus på kvalitet og bæredygtighed.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        tagline="Vores Kompetencer"
+        title="Ydelser"
+        description="Vi tilbyder specialiserede byggeydelser til erhvervslivet. Fra facadepuds og tømrerarbejde til malerarbejde og betonfinish - altid med fokus på kvalitet og professionalisme."
+      />
 
-      {/* Services Grid */}
+      {/* Services Cards */}
       <section className="py-24 bg-background">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {services.map((service) => (
+          <div className="space-y-16">
+            {services.map((service, index) => (
               <div
                 key={service.title}
-                className="group bg-card p-10 shadow-card hover:shadow-industrial transition-all duration-300 border-l-4 border-primary"
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
+                  index % 2 === 1 ? "lg:flex-row-reverse" : ""
+                }`}
               >
-                <div className="flex items-start gap-6">
-                  <div className="p-4 bg-primary/10 flex-shrink-0">
-                    <service.icon className="h-8 w-8 text-primary" />
+                <div className={index % 2 === 1 ? "lg:order-2" : ""}>
+                  <div className="relative overflow-hidden shadow-industrial">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-80 lg:h-96 object-cover"
+                    />
+                    <div className="absolute top-0 left-0 w-2 h-full bg-primary" />
                   </div>
-                  <div className="flex-1">
-                    <h3 className="font-heading text-2xl uppercase text-foreground mb-3">
-                      {service.title}
-                    </h3>
-                    <p className="text-muted-foreground mb-6 leading-relaxed">
-                      {service.description}
-                    </p>
-                    <ul className="space-y-2">
-                      {service.features.map((feature) => (
-                        <li key={feature} className="flex items-center gap-2 text-sm text-foreground">
-                          <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                </div>
+                <div className={index % 2 === 1 ? "lg:order-1" : ""}>
+                  <h3 className="text-3xl uppercase text-foreground mb-4 font-semibold">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    {service.description}
+                  </p>
+                  <ul className="space-y-3 mb-8">
+                    {service.features.map((feature) => (
+                      <li key={feature} className="flex items-center gap-3 text-foreground">
+                        <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <Button asChild variant="outline" className="group">
+                    <Link to="/kontakt">
+                      Kontakt Os
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </Button>
                 </div>
               </div>
             ))}
@@ -138,7 +133,7 @@ const Ydelser = () => {
       {/* CTA */}
       <section className="py-20 bg-industrial-dark">
         <div className="container text-center">
-          <h2 className="font-heading text-3xl md:text-4xl uppercase text-secondary-foreground mb-6">
+          <h2 className="text-3xl md:text-4xl uppercase text-secondary-foreground mb-6 font-semibold">
             Har Du Brug For Vores Ekspertise?
           </h2>
           <p className="text-lg text-secondary-foreground/70 mb-8 max-w-2xl mx-auto">
