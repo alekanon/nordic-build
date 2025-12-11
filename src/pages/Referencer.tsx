@@ -66,7 +66,7 @@ const projects = [
   },
 ];
 
-const Referenser = () => {
+const Referencer = () => {
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
 
   return (
