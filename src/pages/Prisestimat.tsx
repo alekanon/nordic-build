@@ -1,17 +1,18 @@
 import { Layout } from "@/components/layout/Layout";
 import { useState } from "react";
-import { CheckCircle, ArrowRight, Send } from "lucide-react";
+import { CheckCircle, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
+import { PageHero } from "@/components/shared/PageHero";
 
 const projectTypes = [
-  "Nybyggeri",
-  "Renovering",
-  "Industribyggeri",
-  "Lagerbyggeri",
-  "Kontorbyggeri",
+  "Facadepuds",
+  "Facadebeklædning",
+  "Tømrerarbejde",
+  "Malerarbejde",
+  "Betonfinish",
   "Andet",
 ];
 
@@ -49,23 +50,11 @@ const Prisestimat = () => {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-muted concrete-texture">
-        <div className="container">
-          <div className="max-w-3xl">
-            <span className="inline-block font-heading text-sm uppercase tracking-[0.3em] text-primary mb-4">
-              Gratis & Uforpligtende
-            </span>
-            <h1 className="font-heading text-5xl md:text-6xl uppercase text-foreground mb-6">
-              Få Et Prisestimat
-            </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              Udfyld formularen nedenfor, og vi sender dig et detaljeret prisestimat 
-              inden for 24 timer.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        tagline="Gratis & Uforpligtende"
+        title="Få Et Prisestimat"
+        description="Udfyld formularen nedenfor, og vi sender dig et detaljeret prisestimat inden for 24 timer."
+      />
 
       {/* Form Section */}
       <section className="py-24 bg-background">
@@ -73,7 +62,7 @@ const Prisestimat = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             {/* Benefits */}
             <div>
-              <h2 className="font-heading text-2xl uppercase text-foreground mb-8">
+              <h2 className="text-2xl uppercase text-foreground mb-8 font-semibold">
                 Hvorfor Vælge Os?
               </h2>
               <ul className="space-y-6">
@@ -87,7 +76,7 @@ const Prisestimat = () => {
                   <li key={item.title} className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                     <div>
-                      <span className="block font-heading text-foreground">{item.title}</span>
+                      <span className="block text-foreground font-medium">{item.title}</span>
                       <span className="text-sm text-muted-foreground">{item.desc}</span>
                     </div>
                   </li>
@@ -95,7 +84,7 @@ const Prisestimat = () => {
               </ul>
 
               <div className="mt-12 p-6 bg-muted">
-                <h3 className="font-heading text-lg uppercase text-foreground mb-2">
+                <h3 className="text-lg uppercase text-foreground mb-2 font-semibold">
                   Foretrækker Du At Ringe?
                 </h3>
                 <p className="text-muted-foreground text-sm mb-4">
@@ -103,7 +92,7 @@ const Prisestimat = () => {
                 </p>
                 <a
                   href="tel:+4512345678"
-                  className="font-heading text-2xl text-primary hover:text-accent transition-colors"
+                  className="text-2xl text-primary hover:text-accent transition-colors font-semibold"
                 >
                   +45 12 34 56 78
                 </a>
@@ -115,12 +104,12 @@ const Prisestimat = () => {
               <form onSubmit={handleSubmit} className="space-y-8">
                 {/* Contact Info */}
                 <div>
-                  <h3 className="font-heading text-xl uppercase text-foreground mb-6">
+                  <h3 className="text-xl uppercase text-foreground mb-6 font-semibold">
                     Kontaktinformation
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                      <label className="block font-heading text-sm uppercase tracking-wider text-foreground mb-2">
+                      <label className="block text-sm uppercase tracking-wider text-foreground mb-2">
                         Navn *
                       </label>
                       <Input
@@ -132,7 +121,7 @@ const Prisestimat = () => {
                       />
                     </div>
                     <div>
-                      <label className="block font-heading text-sm uppercase tracking-wider text-foreground mb-2">
+                      <label className="block text-sm uppercase tracking-wider text-foreground mb-2">
                         Email *
                       </label>
                       <Input
@@ -144,7 +133,7 @@ const Prisestimat = () => {
                       />
                     </div>
                     <div>
-                      <label className="block font-heading text-sm uppercase tracking-wider text-foreground mb-2">
+                      <label className="block text-sm uppercase tracking-wider text-foreground mb-2">
                         Telefon *
                       </label>
                       <Input
@@ -156,7 +145,7 @@ const Prisestimat = () => {
                       />
                     </div>
                     <div>
-                      <label className="block font-heading text-sm uppercase tracking-wider text-foreground mb-2">
+                      <label className="block text-sm uppercase tracking-wider text-foreground mb-2">
                         Virksomhed
                       </label>
                       <Input
@@ -171,13 +160,13 @@ const Prisestimat = () => {
 
                 {/* Project Info */}
                 <div>
-                  <h3 className="font-heading text-xl uppercase text-foreground mb-6">
+                  <h3 className="text-xl uppercase text-foreground mb-6 font-semibold">
                     Projektoplysninger
                   </h3>
                   <div className="space-y-6">
                     <div>
-                      <label className="block font-heading text-sm uppercase tracking-wider text-foreground mb-3">
-                        Projekttype *
+                      <label className="block text-sm uppercase tracking-wider text-foreground mb-3">
+                        Ydelse *
                       </label>
                       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                         {projectTypes.map((type) => (
@@ -185,7 +174,7 @@ const Prisestimat = () => {
                             key={type}
                             type="button"
                             onClick={() => setFormData({ ...formData, projectType: type })}
-                            className={`p-3 text-sm font-heading uppercase tracking-wider border-2 transition-all ${
+                            className={`p-3 text-sm uppercase tracking-wider border-2 transition-all ${
                               formData.projectType === type
                                 ? "border-primary bg-primary/10 text-primary"
                                 : "border-border text-muted-foreground hover:border-primary/50"
@@ -198,7 +187,7 @@ const Prisestimat = () => {
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                       <div>
-                        <label className="block font-heading text-sm uppercase tracking-wider text-foreground mb-2">
+                        <label className="block text-sm uppercase tracking-wider text-foreground mb-2">
                           Størrelse (m²)
                         </label>
                         <Input
@@ -210,7 +199,7 @@ const Prisestimat = () => {
                         />
                       </div>
                       <div>
-                        <label className="block font-heading text-sm uppercase tracking-wider text-foreground mb-2">
+                        <label className="block text-sm uppercase tracking-wider text-foreground mb-2">
                           Lokation
                         </label>
                         <Input
@@ -222,7 +211,7 @@ const Prisestimat = () => {
                         />
                       </div>
                       <div>
-                        <label className="block font-heading text-sm uppercase tracking-wider text-foreground mb-2">
+                        <label className="block text-sm uppercase tracking-wider text-foreground mb-2">
                           Ønsket Opstart
                         </label>
                         <Input
@@ -235,7 +224,7 @@ const Prisestimat = () => {
                       </div>
                     </div>
                     <div>
-                      <label className="block font-heading text-sm uppercase tracking-wider text-foreground mb-2">
+                      <label className="block text-sm uppercase tracking-wider text-foreground mb-2">
                         Projektbeskrivelse
                       </label>
                       <Textarea

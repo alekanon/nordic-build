@@ -2,6 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { CheckCircle, Award, Users, Target, Leaf } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PageHero } from "@/components/shared/PageHero";
 
 const values = [
   {
@@ -38,34 +39,21 @@ const milestones = [
 const OmOs = () => {
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-muted concrete-texture">
-        <div className="container">
-          <div className="max-w-3xl">
-            <span className="inline-block font-heading text-sm uppercase tracking-[0.3em] text-primary mb-4">
-              Hvem Vi Er
-            </span>
-            <h1 className="font-heading text-5xl md:text-6xl uppercase text-foreground mb-6">
-              Om Dannova Byg
-            </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              I over 25 år har vi været en af Danmarks førende entreprenørvirksomheder inden for 
-              industrielt og kommercielt byggeri. Vores mission er at levere bygninger af højeste 
-              kvalitet med fokus på bæredygtighed og innovation.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        tagline="Hvem Vi Er"
+        title="Om Dannova Byg"
+        description="I over 25 år har vi været en af Danmarks førende entreprenørvirksomheder inden for industrielt og kommercielt byggeri. Vores mission er at levere bygninger af højeste kvalitet med fokus på bæredygtighed og innovation."
+      />
 
       {/* Story Section */}
       <section className="py-24 bg-background">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="inline-block font-heading text-sm uppercase tracking-[0.3em] text-primary mb-4">
+              <span className="inline-block text-sm uppercase tracking-[0.3em] text-primary mb-4">
                 Vores Historie
               </span>
-              <h2 className="font-heading text-4xl uppercase text-foreground mb-6">
+              <h2 className="text-4xl uppercase text-foreground mb-6 font-semibold">
                 25+ År Med Professionelt<br />Byggeri
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
@@ -86,12 +74,12 @@ const OmOs = () => {
               </div>
             </div>
             <div className="space-y-4">
-              {milestones.map((milestone, index) => (
+              {milestones.map((milestone) => (
                 <div
                   key={milestone.year}
                   className="flex items-center gap-6 p-4 bg-muted"
                 >
-                  <span className="font-heading text-2xl text-primary w-20 flex-shrink-0">
+                  <span className="text-2xl text-primary w-20 flex-shrink-0 font-semibold">
                     {milestone.year}
                   </span>
                   <span className="text-foreground">{milestone.event}</span>
@@ -106,10 +94,10 @@ const OmOs = () => {
       <section className="py-24 bg-muted concrete-texture">
         <div className="container">
           <div className="text-center mb-16">
-            <span className="inline-block font-heading text-sm uppercase tracking-[0.3em] text-primary mb-4">
+            <span className="inline-block text-sm uppercase tracking-[0.3em] text-primary mb-4">
               Hvad Vi Tror På
             </span>
-            <h2 className="font-heading text-4xl uppercase text-foreground">
+            <h2 className="text-4xl uppercase text-foreground font-semibold">
               Vores Værdier
             </h2>
           </div>
@@ -122,7 +110,7 @@ const OmOs = () => {
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 mb-6">
                   <value.icon className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="font-heading text-xl uppercase text-foreground mb-3">
+                <h3 className="text-xl uppercase text-foreground mb-3 font-semibold">
                   {value.title}
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
@@ -139,10 +127,10 @@ const OmOs = () => {
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="inline-block font-heading text-sm uppercase tracking-[0.3em] text-primary mb-4">
+              <span className="inline-block text-sm uppercase tracking-[0.3em] text-primary mb-4">
                 Kvalitet & Sikkerhed
               </span>
-              <h2 className="font-heading text-4xl uppercase text-foreground mb-6">
+              <h2 className="text-4xl uppercase text-foreground mb-6 font-semibold">
                 Certificeringer & Standarder
               </h2>
               <p className="text-muted-foreground mb-8 leading-relaxed">
@@ -172,10 +160,10 @@ const OmOs = () => {
                 { number: "25+", label: "Års Erfaring" },
               ].map((stat) => (
                 <div key={stat.label} className="bg-muted p-8 text-center">
-                  <span className="block font-heading text-4xl text-primary mb-2">
+                  <span className="block text-4xl text-primary mb-2 font-semibold">
                     {stat.number}
                   </span>
-                  <span className="font-heading text-sm uppercase tracking-wider text-muted-foreground">
+                  <span className="text-sm uppercase tracking-wider text-muted-foreground">
                     {stat.label}
                   </span>
                 </div>
@@ -188,7 +176,7 @@ const OmOs = () => {
       {/* CTA */}
       <section className="py-20 bg-industrial-dark">
         <div className="container text-center">
-          <h2 className="font-heading text-3xl md:text-4xl uppercase text-secondary-foreground mb-6">
+          <h2 className="text-3xl md:text-4xl uppercase text-secondary-foreground mb-6 font-semibold">
             Vil Du Arbejde Med Os?
           </h2>
           <p className="text-lg text-secondary-foreground/70 mb-8 max-w-2xl mx-auto">

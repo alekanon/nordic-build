@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
+import { PageHero } from "@/components/shared/PageHero";
 
 const Kontakt = () => {
   const [formData, setFormData] = useState({
@@ -26,23 +27,11 @@ const Kontakt = () => {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-muted concrete-texture">
-        <div className="container">
-          <div className="max-w-3xl">
-            <span className="inline-block font-heading text-sm uppercase tracking-[0.3em] text-primary mb-4">
-              Kontakt Os
-            </span>
-            <h1 className="font-heading text-5xl md:text-6xl uppercase text-foreground mb-6">
-              Lad Os Tale
-            </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              Har du spørgsmål eller ønsker du at diskutere et projekt? 
-              Vi er her for at hjælpe dig.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        tagline="Kontakt Os"
+        title="Lad Os Tale"
+        description="Har du spørgsmål eller ønsker du at diskutere et projekt? Vi er her for at hjælpe dig."
+      />
 
       {/* Contact Content */}
       <section className="py-24 bg-background">
@@ -50,7 +39,7 @@ const Kontakt = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Contact Info */}
             <div>
-              <h2 className="font-heading text-3xl uppercase text-foreground mb-8">
+              <h2 className="text-3xl uppercase text-foreground mb-8 font-semibold">
                 Kontaktinformation
               </h2>
               <div className="space-y-8">
@@ -59,7 +48,7 @@ const Kontakt = () => {
                     <MapPin className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-heading text-lg uppercase text-foreground mb-1">
+                    <h3 className="text-lg uppercase text-foreground mb-1 font-semibold">
                       Adresse
                     </h3>
                     <p className="text-muted-foreground">
@@ -75,7 +64,7 @@ const Kontakt = () => {
                     <Phone className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-heading text-lg uppercase text-foreground mb-1">
+                    <h3 className="text-lg uppercase text-foreground mb-1 font-semibold">
                       Telefon
                     </h3>
                     <a href="tel:+4512345678" className="text-muted-foreground hover:text-primary transition-colors">
@@ -89,7 +78,7 @@ const Kontakt = () => {
                     <Mail className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-heading text-lg uppercase text-foreground mb-1">
+                    <h3 className="text-lg uppercase text-foreground mb-1 font-semibold">
                       Email
                     </h3>
                     <a href="mailto:info@dannovabyg.dk" className="text-muted-foreground hover:text-primary transition-colors">
@@ -103,7 +92,7 @@ const Kontakt = () => {
                     <Clock className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-heading text-lg uppercase text-foreground mb-1">
+                    <h3 className="text-lg uppercase text-foreground mb-1 font-semibold">
                       Åbningstider
                     </h3>
                     <p className="text-muted-foreground">
@@ -116,7 +105,7 @@ const Kontakt = () => {
 
               {/* Map placeholder */}
               <div className="mt-12 h-64 bg-muted flex items-center justify-center">
-                <span className="text-muted-foreground font-heading uppercase tracking-wider">
+                <span className="text-muted-foreground uppercase tracking-wider">
                   Kort kommer snart
                 </span>
               </div>
@@ -124,13 +113,13 @@ const Kontakt = () => {
 
             {/* Contact Form */}
             <div>
-              <h2 className="font-heading text-3xl uppercase text-foreground mb-8">
+              <h2 className="text-3xl uppercase text-foreground mb-8 font-semibold">
                 Send En Besked
               </h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label className="block font-heading text-sm uppercase tracking-wider text-foreground mb-2">
+                    <label className="block text-sm uppercase tracking-wider text-foreground mb-2">
                       Navn *
                     </label>
                     <Input
@@ -142,7 +131,7 @@ const Kontakt = () => {
                     />
                   </div>
                   <div>
-                    <label className="block font-heading text-sm uppercase tracking-wider text-foreground mb-2">
+                    <label className="block text-sm uppercase tracking-wider text-foreground mb-2">
                       Email *
                     </label>
                     <Input
@@ -156,7 +145,7 @@ const Kontakt = () => {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label className="block font-heading text-sm uppercase tracking-wider text-foreground mb-2">
+                    <label className="block text-sm uppercase tracking-wider text-foreground mb-2">
                       Telefon
                     </label>
                     <Input
@@ -167,7 +156,7 @@ const Kontakt = () => {
                     />
                   </div>
                   <div>
-                    <label className="block font-heading text-sm uppercase tracking-wider text-foreground mb-2">
+                    <label className="block text-sm uppercase tracking-wider text-foreground mb-2">
                       Virksomhed
                     </label>
                     <Input
@@ -179,7 +168,7 @@ const Kontakt = () => {
                   </div>
                 </div>
                 <div>
-                  <label className="block font-heading text-sm uppercase tracking-wider text-foreground mb-2">
+                  <label className="block text-sm uppercase tracking-wider text-foreground mb-2">
                     Besked *
                   </label>
                   <Textarea

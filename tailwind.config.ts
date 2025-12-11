@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["Oswald", "sans-serif"],
+        heading: ["Source Sans 3", "sans-serif"],
         body: ["Source Sans 3", "sans-serif"],
       },
       colors: {
